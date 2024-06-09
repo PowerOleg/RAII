@@ -1,4 +1,5 @@
 #include "Smart_array.h"
+#include <string>
 
 Smart_array::Smart_array(int aSize) : size{aSize}
 {
@@ -37,5 +38,10 @@ bool Smart_array::add_element(int element)
 
 int Smart_array::get_element(int index)
 {
-	return 1;
+	if (index >= size)
+	{
+		std::string index_string = std::to_string(index);
+		throw std::runtime_error("No element by index " + index_string);
+	}
+	return this->array[index];
 }

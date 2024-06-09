@@ -3,10 +3,9 @@
 
 int main(int argc, char** argv)
 {
-	//setlocale(LC_ALL, "ru");
 	try
 	{
-		Smart_array arr(2);
+		Smart_array arr(5);
 		arr.add_element(1);
 		arr.add_element(4);
 		arr.add_element(155);
@@ -18,6 +17,5 @@ int main(int argc, char** argv)
 	{
 		std::cout << ex.what() << std::endl;
 	}
-
 	return 0;
 }
