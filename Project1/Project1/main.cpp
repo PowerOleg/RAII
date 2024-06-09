@@ -6,7 +6,7 @@ int main(int argc, char** argv)
 	//setlocale(LC_ALL, "ru");
 	try
 	{
-		Smart_array arr(5);
+		Smart_array arr(2);
 		arr.add_element(1);
 		arr.add_element(4);
 		arr.add_element(155);
