@@ -18,10 +18,10 @@ Smart_array::~Smart_array()
 
 bool Smart_array::add_element(int element)
 {
-	if (logical_size < this->size/*actual_size*/)
+	if (this->logical_size < this->size/*actual_size*/)
 	{
-		this->array[logical_size] = element;
-		logical_size++;
+		this->array[this->logical_size++] = element;
+		//this->logical_size++;
 	}
 	else
 	{
@@ -34,15 +34,15 @@ bool Smart_array::add_element(int element)
 		}
 		delete[] this->array;
 		this->array = new_arr;
-		this->array[logical_size] = element;
-		logical_size++;
+		this->array[this->logical_size++] = element;
+		//this->logical_size++;
 	}
 	return true;
 }
 
 int Smart_array::get_element(int index)
 {
-	if (index >= size)
+	if (index >= this->logical_size || index < 0)
 	{
 		std::string index_string = std::to_string(index);
 		throw std::runtime_error("No element by index " + index_string);
@@ -61,4 +61,33 @@ bool Smart_array::copy(const Smart_array& smart_array)
 		this->array[i] = smart_array.array[i];
 	}
 	return true;
+}
+
+Smart_array::Smart_array(const Smart_array& smart_array)
+{
+	this->size = smart_array.size;
+	this->logical_size = smart_array.logical_size;
+	//delete[] this->array;
+	this->array = new int[size];
+	for (size_t i = 0; i < this->size; i++)
+	{
+		this->array[i] = smart_array.array[i];
+	}
+}
+Smart_array& Smart_array::operator=(const Smart_array& smart_array)
+{
+	if (&smart_array == this)
+	{
+		throw std::invalid_argument("Invalid_argument: this object and the argument object are the same");
+	}
+
+	this->size = smart_array.size;
+	this->logical_size = smart_array.logical_size;
+	delete[] this->array;
+	this->array = new int[size];
+	for (size_t i = 0; i < this->size; i++)
+	{
+		this->array[i] = smart_array.array[i];
+	}
+	return *this;
 }

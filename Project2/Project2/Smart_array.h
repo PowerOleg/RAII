@@ -12,5 +12,7 @@ public:
 	int get_element(int index);
 	bool copy(const Smart_array& smart_array);
 	~Smart_array();
+	Smart_array(const Smart_array& smart_array);
+	Smart_array& operator=(const Smart_array&);
 };
 

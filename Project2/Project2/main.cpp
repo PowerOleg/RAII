@@ -17,8 +17,10 @@ int main(int argc, char** argv)
 		new_array.add_element(44);
 		new_array.add_element(34);
 
-		//arr = new_array;
-		arr.copy(new_array);
+		arr = new_array;
+
+		Smart_array new_array2(arr);
+		//new_array2 = new_array2;//this case solved and throw Exception
 	}
 	catch (const std::exception& ex)
 	{
