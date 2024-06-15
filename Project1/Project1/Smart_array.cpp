@@ -38,7 +38,7 @@ bool Smart_array::add_element(int element)
 
 int Smart_array::get_element(int index)
 {
-	if (index >= this->logical_size && index < 0)
+	if (index >= this->logical_size || index < 0)
 	{
 		std::string index_string = std::to_string(index);
 		throw std::runtime_error("No element by index " + index_string);
