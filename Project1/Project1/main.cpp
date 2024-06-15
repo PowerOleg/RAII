@@ -12,6 +12,10 @@ int main(int argc, char** argv)
 		arr.add_element(14);
 		arr.add_element(15);
 		std::cout << arr.get_element(1) << std::endl;
+
+		Smart_array arr2(arr);
+		Smart_array arr3 = arr;
+
 	}
 	catch (const std::exception& ex)
 	{
